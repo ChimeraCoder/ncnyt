@@ -20,9 +20,18 @@ def get_text(url):
 
     soup = bs(r.text, 'lxml')
 
+    title_elem = soup.find('nyt_headline')
+    
+    if title_elem:
+        title = title_elem.contents[0]
+    else:
+        title = 'Unknown Article'
+
     paragraphs = soup.find_all('p', {'itemprop':'articleBody'})
     
     if paragraphs:
-        return u'\n'.join([extract_text(elem).rstrip() for elem in paragraphs])
-    
-    return 'Could not extract article text'
+        body = u'\n'.join([extract_text(elem).rstrip() for elem in paragraphs])
+    else:
+        body = 'Could not extract article text'
+
+    return title, body

@@ -1,6 +1,7 @@
 import urwid
 from .widgets import *
 import nyt
+import sys
 
 def show_article_list(results):
     global view_chain
@@ -20,7 +21,8 @@ def start_transition(button, action):
         
 def open_article(button, url):
     global view_chain
-    aview = article_view(button.get_label(), nyt.get_text(url))
+    title, body = nyt.get_text(url)
+    aview = article_view(title, body)
     view_chain.append(aview)
     top.set_body(aview)
 
@@ -53,6 +55,8 @@ palette = [
 ]
 
 def main():
+    if len(sys.argv) > 1:
+        open_article(None, sys.argv[1])
     loop = urwid.MainLoop(top, palette, unhandled_input=handle_keypress)
     loop.run()
 
