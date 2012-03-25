@@ -5,5 +5,7 @@
 *.sqlite
 *.sqlite3
 keys.json
-
-
+env
+build
+dist
+*.egg-info
