@@ -23,6 +23,6 @@ def get_text(url):
     paragraphs = soup.find_all('p', {'itemprop':'articleBody'})
     
     if paragraphs:
-        return u''.join([extract_text(elem) for elem in paragraphs])
+        return u'\n'.join([extract_text(elem).rstrip() for elem in paragraphs])
     
     return 'Could not extract article text'
