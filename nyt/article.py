@@ -5,6 +5,10 @@ from bs4.element import NavigableString, Tag
 import aalib
 import Image
 from StringIO import StringIO
+from collections import namedtuple
+
+Article = namedtuple('Article', 
+        ['title', 'byline', 'dateline', 'img', 'body', 'url'])
 
 def render_image(url):
     screen = aalib.AsciiScreen()
@@ -48,11 +52,23 @@ def get_text(url):
     soup = bs(r.text, 'lxml')
 
     title_elem = soup.find('nyt_headline')
+    author_elem = soup.find('a', {'rel': 'author'})
+    date_elem = soup.find('h6', {'class': 'dateline'})
     
     if title_elem:
         title = title_elem.contents[0] + '\n'
     else:
         title = 'Unknown Article\n'
+
+    if author_elem:
+        byline = 'By ' + author_elem.contents[0] 
+    else:
+        byline = 'By unknown'
+
+    if date_elem:
+        dateline = date_elem.contents[0]
+    else:
+        dateline = 'Published at unknown date'
 
     pages = soup.find('ul', {'id': 'pageNumbers'})
 
@@ -67,9 +83,9 @@ def get_text(url):
         paragraphs = soup.find_all('p', {'itemprop':'articleBody'})
     
         if paragraphs:
-            body =  u'\n'.join([extract_text(elem).rstrip() for elem in paragraphs])
+            body =  u'\n'.join([extract_text(elem).rstrip() for elem in paragraphs]) + u'\n'
         else:
-            body = 'Could not extract Article text.'
+            body = 'Could not extract Article text.\n'
     else:
         num_pages = len(pages.find_all('li'))
         paragraphs = soup.find_all('p', {'itemprop':'articleBody'})
@@ -80,5 +96,6 @@ def get_text(url):
             body = u'Could not extract text for page 1'
         for x in range(1, num_pages):
             body += u'\n' + get_page(url, x + 1) 
+        body += u'\n'
 
-    return title, img, body+u'\n'
+    return Article(title, byline, dateline, img, body, url)
