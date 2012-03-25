@@ -44,7 +44,11 @@ view_chain = [start_screen(start_transition)]
 top = urwid.Frame(view_chain[0], footer=instruction_text())
 sscreen = search_screen()
 
+palette = [
+    ('title', 'default,bold', 'default', 'bold')
+]
+
 def main():
-    loop = urwid.MainLoop(top, unhandled_input=handle_keypress)
+    loop = urwid.MainLoop(top, palette, unhandled_input=handle_keypress)
     loop.run()
 

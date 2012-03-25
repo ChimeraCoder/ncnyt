@@ -2,7 +2,7 @@ import urwid
 
 def article_view(title, body):
     content = urwid.SimpleListWalker([
-        urwid.Text(('bold', title)),
+        urwid.Text(('title', title), align='center'),
         urwid.Text(body) ])
     return urwid.ListBox(content)
 
