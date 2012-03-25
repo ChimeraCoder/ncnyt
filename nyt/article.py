@@ -81,4 +81,4 @@ def get_text(url):
         for x in range(1, num_pages):
             body += u'\n' + get_page(url, x + 1) 
 
-    return title, img, body
+    return title, img, body+u'\n'

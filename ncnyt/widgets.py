@@ -1,10 +1,11 @@
 import urwid
 
-def article_view(title, img, body):
+def article_view(title, img, body, url):
     content = urwid.SimpleListWalker([
         urwid.Text(('title', title), align='center'),
         urwid.Text(img, align='center'),
-        urwid.Text(body) ])
+        urwid.Text(body),
+        urwid.Text(url, align='right')])
     return urwid.ListBox(content)
 
 def article_list(artlist, button_handler):
