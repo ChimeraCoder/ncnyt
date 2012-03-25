@@ -7,7 +7,7 @@ setup(name='ncnyt',
       version='0.1',
       url='https://github.com/ChimeraCoder/ncnyt',
       packages=['ncnyt', 'nyt'],
-      install_requires=['requests', 'urwid', 'beautifulsoup4'],
+      install_requires=['requests', 'urwid', 'beautifulsoup4', 'lxml'],
       entry_points = {
         'console_scripts': ['nyt=ncnyt:main']
       })

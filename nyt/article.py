@@ -18,6 +18,11 @@ def get_text(url):
     if r.status_code != 200:
         r.raise_for_status()
 
-    soup = bs(r.text)
+    soup = bs(r.text, 'lxml')
+
     paragraphs = soup.find_all('p', {'itemprop':'articleBody'})
-    return u''.join([extract_text(elem) for elem in paragraphs])
+    
+    if paragraphs:
+        return u''.join([extract_text(elem) for elem in paragraphs])
+    
+    return 'Could not extract article text'
