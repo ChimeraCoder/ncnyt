@@ -20,7 +20,7 @@ md5sums=('f17c320658f8b8f9e4c222fbd9cd1ed6')
 
 package() {
   cd "$srcdir/ChimeraCoder-$pkgname-dd1ba7a"
-  python setup.py install --root="$pkgdir/" --optimize=1
+  python2 setup.py install --root="$pkgdir/" --optimize=1
 }
 
 # vim:set ts=2 sw=2 et:
