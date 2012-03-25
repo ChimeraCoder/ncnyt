@@ -1,6 +1,6 @@
 import requests
 import json
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup as bs
 
 loremipsum = """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis ultricies est. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris lobortis libero velit. Ut at justo sed leo gravida feugiat. Donec cursus porta lectus ac consectetur. Suspendisse vel mi at nulla aliquam varius vitae at nibh. Sed vehicula, nisi non blandit aliquet, lorem metus suscipit eros, et pharetra metus ipsum at nibh. Fusce iaculis sollicitudin justo et bibendum. In hac habitasse platea dictumst. Vestibulum eu nulla elit, venenatis accumsan velit.
 
@@ -16,5 +16,9 @@ def get_text(url):
     """Given the url of a NYTimes article, returns the body text of
     the article."""
     
-    
-    return loremipsum
+    r = requests.get(url)
+    if r.status_code != 200:
+        r.raise_for_status()
+
+    soup = bs(r.text)
+    return ''.join([str(x) for x in soup.find_all('p', {')])
