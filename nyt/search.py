@@ -17,7 +17,7 @@ def search(query):
     r = requests.get(base_url, params=params)
     
     if r.status_code != 200:
-        raise HttpError('Error: search query status code ' + str(r.status_code))
+        r.raise_for_status()
 
     response = json.loads(r.text)
     return [(x['title'], x['url']) for x in response['results']]
