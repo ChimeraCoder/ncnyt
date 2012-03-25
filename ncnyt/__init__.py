@@ -21,8 +21,8 @@ def start_transition(button, action):
         
 def open_article(button, url):
     global view_chain
-    title, body = nyt.get_text(url)
-    aview = article_view(title, body)
+    title, img, body = nyt.get_text(url)
+    aview = article_view(title, img, body)
     view_chain.append(aview)
     top.set_body(aview)
 

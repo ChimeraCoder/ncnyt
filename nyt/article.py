@@ -59,26 +59,26 @@ def get_text(url):
     img_elem = soup.find('img', {'itemprop': 'url'})
     
     if img_elem:
-        body = render_image(img_elem['src']) + '\n'
+        img = render_image(img_elem['src']) + '\n'
     else:
-        body = ''
+        img = ''
 
     if not pages:
         paragraphs = soup.find_all('p', {'itemprop':'articleBody'})
     
         if paragraphs:
-            body +=  u'\n'.join([extract_text(elem).rstrip() for elem in paragraphs])
+            body =  u'\n'.join([extract_text(elem).rstrip() for elem in paragraphs])
         else:
-            body += 'Could not extract Article text.'
+            body = 'Could not extract Article text.'
     else:
         num_pages = len(pages.find_all('li'))
         paragraphs = soup.find_all('p', {'itemprop':'articleBody'})
     
         if paragraphs:
-            body += u'\n'.join([extract_text(elem).rstrip() for elem in paragraphs])
+            body = u'\n'.join([extract_text(elem).rstrip() for elem in paragraphs])
         else:
-            body += u'Could not extract text for page 1'
+            body = u'Could not extract text for page 1'
         for x in range(1, num_pages):
             body += u'\n' + get_page(url, x + 1) 
 
-    return title, body
+    return title, img, body

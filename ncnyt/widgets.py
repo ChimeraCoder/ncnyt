@@ -1,8 +1,9 @@
 import urwid
 
-def article_view(title, body):
+def article_view(title, img, body):
     content = urwid.SimpleListWalker([
         urwid.Text(('title', title), align='center'),
+        urwid.Text(img, align='center'),
         urwid.Text(body) ])
     return urwid.ListBox(content)
 
