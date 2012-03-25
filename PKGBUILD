@@ -13,7 +13,7 @@ pkgdesc="NCurses New York Times Reader"
 arch=('any')
 url="https://github.com/ChimeraCoder/ncnyt"
 license=('MIT')
-depends=('python2' 'python-aalib' 'python-imaging' 'beautifulsoup4' \
+depends=('python2' 'python-aalib' 'python-imaging' 'python2-beautifulsoup4' \
          'python2-urwid' 'python2-lxml')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/ChimeraCoder/ncnyt/tarball/0.1.0")
 md5sums=('f17c320658f8b8f9e4c222fbd9cd1ed6')

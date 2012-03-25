@@ -26,6 +26,17 @@ or clone the repository and run
 
 	python setup.py install
 
+You must register your own [API keys for the New York
+Times](developer.nytimes.com), for the search, popular, and newswire
+APIs. Store these in JSON format in ~/.config/nyt/keys.json as
+follows:
+
+{
+  "search": "search-api-key",
+  "popular": "popular-api-key",
+  "newswire": "newswire-api-key"
+}
+
 Instructions:
 
 Just run the `nyt` executable to start the program. Once inside, press 'q' to
