@@ -2,15 +2,22 @@ import urwid
 from .widgets import *
 import nyt
 
+def show_article_list(results):
+    global view_chain
+    alist = article_list(results, open_article)
+    view_chain.append(alist)
+    top.set_body(alist)
+
 def start_transition(button, action):
     if action == 'search':
         top.set_body(sscreen)
-    if action == 'popular':
+    elif action == 'popular':
         results = nyt.most_popular()
-        alist = article_list(results, open_article)
-        view_chain.append(alist)
-        top.set_body(alist)
-
+        show_article_list(results)
+    elif action == 'newest':
+        results = nyt.newest()
+        show_article_list(results)
+        
 def open_article(button, url):
     global view_chain
     aview = article_view(button.get_label(), nyt.get_text(url))
@@ -23,11 +30,8 @@ def handle_keypress(key):
             query = search_screen_text(sscreen)
             if query:
                 results = nyt.search(query)
-                global view_chain
-                alist = article_list(results, open_article)
-                view_chain.append(alist)
-                top.set_body(alist)
-
+                show_article_list(results)
+    
     if key == 'left':
         if len(view_chain) > 1:
             view_chain.pop()
@@ -43,6 +47,4 @@ sscreen = search_screen()
 def main():
     loop = urwid.MainLoop(top, unhandled_input=handle_keypress)
     loop.run()
-
-
 

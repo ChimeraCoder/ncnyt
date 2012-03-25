@@ -24,8 +24,9 @@ def start_screen(button_handler):
     content = urwid.SimpleListWalker(
             [urwid.Button(label, button_handler, action) \
                 for (label, action) in [
-                    ('Search Article', 'search'),
-                    ('Most Popular', 'popular')]])
+                    ('Search Articles', 'search'),
+                    ('Most Popular Articles', 'popular'),
+                    ('NewsWire: Most Recent Articles', 'newest')]])
     return urwid.ListBox(content)
 
 def instruction_text():
