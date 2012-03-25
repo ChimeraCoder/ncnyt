@@ -41,7 +41,11 @@ def handle_keypress(key):
         raise urwid.ExitMainLoop()
 
 view_chain = [start_screen(start_transition)]
-top = urwid.Frame(view_chain[0], footer=instruction_text())
+
+top = urwid.Frame(view_chain[0], 
+        header=urwid.Text(('title', 'The New York Times'), align='center'), 
+        footer=instruction_text())
+
 sscreen = search_screen()
 
 palette = [
