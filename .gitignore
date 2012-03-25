@@ -9,3 +9,6 @@ env
 build
 dist
 *.egg-info
+pkg
+src
+*.tar.*
