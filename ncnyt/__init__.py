@@ -5,6 +5,11 @@ import nyt
 def start_transition(button, action):
     if action == 'search':
         top.set_body(sscreen)
+    if action == 'popular':
+        results = nyt.most_popular()
+        alist = article_list(results, open_article)
+        view_chain.append(alist)
+        top.set_body(alist)
 
 def open_article(button, url):
     global view_chain
