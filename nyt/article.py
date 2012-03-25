@@ -1,6 +1,6 @@
 import requests
 import json
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 
 loremipsum = """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis ultricies est. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris lobortis libero velit. Ut at justo sed leo gravida feugiat. Donec cursus porta lectus ac consectetur. Suspendisse vel mi at nulla aliquam varius vitae at nibh. Sed vehicula, nisi non blandit aliquet, lorem metus suscipit eros, et pharetra metus ipsum at nibh. Fusce iaculis sollicitudin justo et bibendum. In hac habitasse platea dictumst. Vestibulum eu nulla elit, venenatis accumsan velit.
 
