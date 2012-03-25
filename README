@@ -1,6 +1,9 @@
 NCNYT: NCurses-based NYTimes Reader
 ====================================
 
+
+#####Because who needs X?
+
 Have you ever been working in the terminal and wanted to read the news, but
 didn't want to leave the terminal to do it? Well this might just be the 
 application for you! This NCurses-based application allows you to read quality
