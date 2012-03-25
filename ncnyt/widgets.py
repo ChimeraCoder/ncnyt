@@ -1,5 +1,4 @@
 import urwid
-#import nyt
 
 def article_view(title, body):
     content = urwid.SimpleListWalker([
@@ -12,6 +11,10 @@ def article_list(artlist, button_handler):
             [urwid.Button(title, button_handler, url) \
                 for (title, url) in artlist])
     return urwid.ListBox(content)
+
+def search_screen_text(sscreen):
+    entry = sscreen.original_widget
+    return entry.get_text()
 
 def search_screen():
     entry = urwid.Edit('Search: ')
