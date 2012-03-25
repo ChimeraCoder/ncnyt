@@ -50,9 +50,9 @@ def get_text(url):
     title_elem = soup.find('nyt_headline')
     
     if title_elem:
-        title = title_elem.contents[0]
+        title = title_elem.contents[0] + '\n'
     else:
-        title = 'Unknown Article'
+        title = 'Unknown Article\n'
 
     pages = soup.find('ul', {'id': 'pageNumbers'})
 
