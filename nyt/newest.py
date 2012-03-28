@@ -15,6 +15,5 @@ def newest():
     if r.status_code != 200:
         r.raise_for_status()
 
-    print(r.text)
     response = json.loads(r.text)
     return [(x['headline'], x['url']) for x in response['results']]
