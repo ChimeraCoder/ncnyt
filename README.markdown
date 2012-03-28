@@ -2,7 +2,7 @@ NCNYT: NCurses-based NYTimes Reader
 ====================================
 
 
-#####Because who needs X?
+#####All the news that's fit to print()
 
 Have you ever been working in the terminal and wanted to read the news, but
 didn't want to leave the terminal to do it? Well this might just be the 
@@ -31,11 +31,11 @@ Times](developer.nytimes.com), for the search, popular, and newswire
 APIs. Store these in JSON format in ~/.config/nyt/keys.json as
 follows:
 
-{
-  "search": "search-api-key",
-  "popular": "popular-api-key",
-  "newswire": "newswire-api-key"
-}
+  {
+    "search": "search-api-key",
+    "popular": "popular-api-key",
+    "newswire": "newswire-api-key"
+  }
 
 Instructions:
 

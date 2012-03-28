@@ -3,6 +3,11 @@ import os.path
 
 keys_internal = {}
 
+def keys_file_exists():
+    curr = 'keys.json'
+    home = os.path.expanduser('~/.config/nyt/keys.json')
+    return os.path.isfile(curr) or os.path.isfile(home)
+
 def keys():
     global keys_internal
     if not keys_internal:

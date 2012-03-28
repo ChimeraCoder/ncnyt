@@ -2,6 +2,7 @@ import urwid
 from .widgets import *
 import nyt
 import sys
+import os.path
 
 def show_article_list(results):
     global view_chain
@@ -64,9 +65,24 @@ palette = [
     ('title', 'default,bold', 'default', 'bold')
 ]
 
+help = """Error: no keys file found. To use ncnyt, you must register
+API keys for the New York Times' search, popular, and newswire APIs at
+developer.nytimes.com and store them in ~/.config/nyt/keys.json or
+./keys.json in the following format:
+
+{
+  "search": "search-api-key",
+  "popular": "popular-api-key",
+  "newswire": "newswire-api-key"
+}
+"""
+
 def main():
-    if len(sys.argv) > 1:
-        open_article(None, sys.argv[1])
-    loop = urwid.MainLoop(top, palette, unhandled_input=handle_keypress)
-    loop.run()
+    if not nyt.keys_file_exists():
+        print(help)
+    else:
+        if len(sys.argv) > 1:
+            open_article(None, sys.argv[1])
+        loop = urwid.MainLoop(top, palette, unhandled_input=handle_keypress)
+        loop.run()
 
