@@ -11,12 +11,12 @@ articles from the New York Times without ever leaving the warm embrace of the
 command line.
 
 Dependencies:
- - urwid
- - requests
- - beautifulsoup4
- - lxml
- - python-aalib
- - PIL
+ * urwid
+ * requests
+ * beautifulsoup4
+ * lxml
+ * python-aalib
+ * PIL
 
 Installation:
 
