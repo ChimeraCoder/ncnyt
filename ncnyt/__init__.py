@@ -33,8 +33,18 @@ def handle_keypress(key):
             if query:
                 results = nyt.search(query)
                 show_article_list(results)
+
+    # vim-like bindings
+    if key == 'j':
+        top.get_body().keypress((100, 50), 'down')
     
-    if key == 'left':
+    if key == 'k':
+        top.get_body().keypress((100, 50), 'up')
+
+    if key == 'l':
+        top.get_body().keypress((100, 50), 'enter')
+    
+    if key == 'left' or key == 'h':
         if len(view_chain) > 1:
             view_chain.pop()
             top.set_body(view_chain[-1])
