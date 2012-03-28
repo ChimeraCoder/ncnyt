@@ -1,8 +1,7 @@
-NCNYT: NCurses-based NYTimes Reader
-====================================
+# NCNYT: NCurses-based NYTimes Reader
 
 
-#####All the news that's fit to print()
+## All the news that's fit to print()
 
 Have you ever been working in the terminal and wanted to read the news, but
 didn't want to leave the terminal to do it? Well this might just be the 
@@ -10,7 +9,8 @@ application for you! This NCurses-based application allows you to read quality
 articles from the New York Times without ever leaving the warm embrace of the
 command line.
 
-Dependencies:
+## Dependencies:
+
  * urwid
  * requests
  * beautifulsoup4
@@ -18,7 +18,7 @@ Dependencies:
  * python-aalib
  * PIL
 
-Installation:
+## Installation:
 
 	pip install ncnyt
 
@@ -37,7 +37,7 @@ follows:
     	"newswire": "newswire-api-key"
 	}
 
-Instructions:
+## Instructions:
 
 Just run the `nyt` executable to start the program. Once inside, press 'q' to
 quit, and use the left arrow to go back to the previous screen.
