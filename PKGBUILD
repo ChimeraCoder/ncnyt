@@ -1,6 +1,6 @@
 # Maintainer: Zack Newman <znewman01@gmail.com>
 pkgname=ncnyt
-pkgver=0.1
+pkgver=0.2.0
 pkgrel=2
 pkgdesc="NCurses New York Times Reader"
 arch=('any')
@@ -10,11 +10,11 @@ install='ncnyt.install'
 depends=('python2' 'python-aalib' 'python2-beautifulsoup4' \
          'python2-urwid' 'python2-lxml' 'python2-certifi' \
          'python2-chardet' 'python2-requests')
-source=("$pkgname-$pkgver.tar.gz::https://github.com/ChimeraCoder/ncnyt/tarball/0.1.0")
-md5sums=('f17c320658f8b8f9e4c222fbd9cd1ed6')
+source=("http://pypi.python.org/packages/source/n/ncnyt/ncnyt-$pkgver.tar.gz")
+md5sums=('07c2387a9ca45f4fd3adedb96f5a066b')
 
 package() {
-  cd "$srcdir/ChimeraCoder-$pkgname-dd1ba7a"
+  cd "$srcdir/$pkgname-$pkgver"
   python2 setup.py install --root="$pkgdir/" --optimize=1
 }
 
