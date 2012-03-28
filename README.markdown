@@ -31,11 +31,11 @@ Times](developer.nytimes.com), for the search, popular, and newswire
 APIs. Store these in JSON format in ~/.config/nyt/keys.json as
 follows:
 
-  {
-    "search": "search-api-key",
-    "popular": "popular-api-key",
-    "newswire": "newswire-api-key"
-  }
+	{
+    	"search": "search-api-key",
+    	"popular": "popular-api-key",
+    	"newswire": "newswire-api-key"
+	}
 
 Instructions:
 
