@@ -42,7 +42,7 @@ def handle_keypress(key):
     if key == 'k':
         top.get_body().keypress((100, 50), 'up')
 
-    if key == 'l':
+    if key == 'l' or key == 'right':
         top.get_body().keypress((100, 50), 'enter')
     
     if key == 'left' or key == 'h':
