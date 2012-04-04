@@ -1,7 +1,7 @@
 # Maintainer: Zack Newman <znewman01@gmail.com>
 pkgname=ncnyt
 pkgver=0.3.0
-pkgrel=2
+pkgrel=1
 pkgdesc="NCurses New York Times Reader"
 arch=('any')
 url="https://github.com/ChimeraCoder/ncnyt"
