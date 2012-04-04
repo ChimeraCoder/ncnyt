@@ -1,6 +1,6 @@
 # Maintainer: Zack Newman <znewman01@gmail.com>
 pkgname=ncnyt
-pkgver=0.2.0
+pkgver=0.3.0
 pkgrel=2
 pkgdesc="NCurses New York Times Reader"
 arch=('any')
