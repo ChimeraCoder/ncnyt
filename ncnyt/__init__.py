@@ -22,7 +22,7 @@ def start_transition(button, action):
         
 def open_article(button, url):
     global view_chain
-    art = nyt.get_text(url)
+    art = nyt.get_article(url)
     aview = article_view(art)
     view_chain.append(aview)
     top.set_body(aview)

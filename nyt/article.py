@@ -10,6 +10,8 @@ from collections import namedtuple
 Article = namedtuple('Article', 
         ['title', 'byline', 'dateline', 'img', 'body', 'url'])
 
+art_cache = {}
+
 def render_image(url):
     screen = aalib.AsciiScreen()
     r = requests.get(url)
@@ -41,10 +43,13 @@ def get_page(url, page):
     return u'Could not extract text for page' + str(page)
 
 
-def get_text(url):
+def get_article(url):
     """Given the url of a NYTimes article, returns the body text of
     the article."""
     
+    if url in art_cache:
+        return art_cache[url]
+
     r = requests.get(url)
     if r.status_code != 200:
         r.raise_for_status()
@@ -98,4 +103,9 @@ def get_text(url):
             body += u'\n' + get_page(url, x + 1) 
         body += u'\n'
 
-    return Article(title, byline, dateline, img, body, url)
+    art = Article(title, byline, dateline, img, body, url)
+
+    if 'Could not extract Article text' not in body:
+        art_cache[url] = art
+
+    return art
