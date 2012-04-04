@@ -11,7 +11,7 @@ depends=('python2' 'python-aalib' 'python2-beautifulsoup4' \
          'python2-urwid' 'python2-lxml' 'python2-certifi' \
          'python2-chardet' 'python2-requests')
 source=("http://pypi.python.org/packages/source/n/ncnyt/ncnyt-$pkgver.tar.gz")
-md5sums=('07c2387a9ca45f4fd3adedb96f5a066b')
+md5sums=('67a69efacfbc3202c3555bc8896f32e6')
 
 package() {
   cd "$srcdir/$pkgname-$pkgver"
