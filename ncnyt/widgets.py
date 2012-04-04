@@ -34,6 +34,6 @@ def start_screen(button_handler):
     return urwid.ListBox(content)
 
 def instruction_text():
-    return urwid.Text('q: quit | left: go back')
+    return urwid.Text('q: quit | left: go back | right/enter: select')
         
 
